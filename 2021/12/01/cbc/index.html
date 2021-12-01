@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="AEQAQ">
+    
+    <title>
+        
+            cbc字节反转攻击入门 |
+        
+        人死后会去电影院
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/icon.svg">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/touxiang.jpeg","favicon":"/images/icon.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":false},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"Learn. Spread. Learn."},"scroll":{"progress_bar":{"enable":false},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":false,"style":"default"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                人死后会去电影院
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">cbc字节反转攻击入门</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/touxiang.jpeg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">AEQAQ</span>
+                        
+                            <span class="author-label">Lv1</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2021-12-01 21:43:16
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/web/">web</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/cbc/">cbc</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h1 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1.    基本概念"></a>1.    基本概念</h1><h2 id="1-1-CBC模式"><a href="#1-1-CBC模式" class="headerlink" title="1.1    CBC模式"></a>1.1    CBC模式</h2><p>1976年，IBM发明了密码分组链接（CBC，Cipher-block chaining）模式。在CBC模式中，每个明文块先与<strong>前一个密文块</strong>进行<strong>异或</strong>后，再进行加密。在这种方法中，每个密文块都依赖于它前面的所有明文块。同时，为了保证每条消息的唯一性，在第一个块中需要使用初始化向量。</p>
+<h3 id="加密过程："><a href="#加密过程：" class="headerlink" title="加密过程："></a>加密过程：</h3><p><img src="https://www.mi1k7ea.com/2020/09/17/%E6%B5%85%E6%9E%90CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%E4%B8%8EPadding-Oracle-Attack/1.png" alt="img"></p>
+<ul>
+<li><strong>Plaintext</strong>：明文数据；</li>
+<li><strong>Initialzation Vector（IV）</strong>：初始向量；</li>
+<li><strong>Key</strong>：分组加密使用的密钥；</li>
+<li><strong>Ciphertext</strong>：密文数据；</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Ciphertext-0 = Encrypt(Plaintext XOR IV)—只用于第一个组块</span><br><span class="line">Ciphertext-N= Encrypt(Plaintext XOR Ciphertext-N-1)—用于第二及剩下的组块</span><br></pre></td></tr></table></figure>
+
+<p>加密步骤：</p>
+<ol>
+<li>首先将明文分成长度相同（一般为8或16字节）的n组，其中最后一组位数不足的进行Padding操作（填充规则是PKCS #5或PKCS #7）；</li>
+<li>生成一个随机的初始向量（IV）和一个密钥（Key）；</li>
+<li>将IV与第一组明文进行XOR，将XOR后的结果使用Key进行加密得到第一组密文；</li>
+<li>将第一组密文和第二组明文进行XOR，将XOR后的结果使用Key进行加密得到第二组密文；</li>
+<li>依次类推，将第n-1组密文和第n组明文进行XOR，将XOR后的结果使用Key进行加密得到第n组密文；</li>
+<li>将IV和得到的所有分组密文拼接到一起，得到最终的密文；</li>
+</ol>
+<h3 id="解密过程："><a href="#解密过程：" class="headerlink" title="解密过程："></a>解密过程：</h3><p><img src="http://l1nk3r.xmutsec.com/blog/mh3xk.jpg" alt="10"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Plaintext-0 = Decrypt(Ciphertext) XOR IV—只用于第一个组块</span><br><span class="line">Plaintext-N= Decrypt(Ciphertext) XOR Ciphertext-N-1—用于第二及剩下的组块</span><br></pre></td></tr></table></figure>
+
+<p>解密步骤：</p>
+<ol>
+<li>首先从密文中提取出初始向量（IV），然后将密文分成n组（一般为8或16字节一组）；</li>
+<li>使用密钥（Key）对第一组密文进行解密，得到解密的中间值我们称为Intermediary Value；</li>
+<li>使用IV与第一组Intermediary Value进行XOR，得到第一组明文；</li>
+<li>使用Key对第n组密文进行解密，得到第n组Intermediary Value；</li>
+<li>使用第n-1组密文与第n组Intermediary Value进行XOR，得到第n组明文；</li>
+<li>将所有分组明文拼接到一起，得到最终的明文；0</li>
+</ol>
+<p>注意：Ciphertext-N-1（密文-N-1）是用来产生下一块明文；这就是字节翻转攻击开始发挥作用的地方。如果我们改变Ciphertext-N-1（密文-N-1）的一个字节，然后与下一个解密后的组块异或，我们就可以得到一个不同的明文了！</p>
+<p><img src="http://drops.xmd5.com/full/157b4078de6a8615e7c4be958d4d89164f1810e9.jpg" alt="enter image description here"></p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation" >https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="1-2-异或"><a href="#1-2-异或" class="headerlink" title="1.2 异或"></a>1.2 异或</h2><p>异或（XOR）是一个数学运算符。它应用于逻辑运算。异或的数学符号为“⊕”，计算机符号为“xor”。其运算法则为：</p>
+<p>a⊕b = (¬a ∧ b) ∨ (a ∧¬b)</p>
+<p>如果a、b两个值不相同，则异或结果为1。如果a、b两个值相同，异或结果为0。</p>
+<p>在计算机中，存储的数据是以二进制的格式存入的，把两段二进制数字进行异或运算的话，相同的得0，不同的得1。字符在计算机中有对应的ASCII码值，对字符进行异或运算就是将两串字符对应的ASCII码值进行异或。</p>
+<p><strong>异或运算具有可逆性，a xor b = c 等价于 b xor c = a 等价于 a xor c = b。</strong></p>
+<h1 id="2-simple-demo"><a href="#2-simple-demo" class="headerlink" title="2.    simple demo"></a>2.    simple demo</h1><p>跟着<strong>L1NK3R</strong>师傅的博客摸索一遍</p>
+<p>下面是一段明文序列：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a:2:&#123;s:4:&quot;name&quot;;s:6:&quot;sdsdsd&quot;;s:8:&quot;greeting&quot;;s:20:&quot;echo &#x27;Hello sdsdsd!&#x27;&quot;;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>目标：将“s:6”当中的数字6转换成数字“7”。我们需要做的第一件事就是把明文分成16个字节的块：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Block 1:	a:2:&#123;s:4:&quot;name&quot;;</span><br><span class="line">Block 2:	s:6:&quot;sdsdsd&quot;;s:8</span><br><span class="line">Block 3:	:&quot;greeting&quot;;s:20</span><br><span class="line">Block 4:	:&quot;echo &#x27;Hello sd</span><br><span class="line">Block 5:	sdsd!&#x27;&quot;;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因此,根据第一节末我们讲的，</p>
+<p><em><strong>目标字符位于块2，这意味着我们需要改变块一的密文来改变第二块的明文。</strong></em></p>
+<p><em><strong>你在密文中改变的字节，只会影响到在下一明文当中，具有相同偏移量的字节。</strong></em></p>
+<p>因此我们要改变在第一个密文块当中，偏移量是2的字节。正如你在下面的代码当中看到的，在第2行我们得到了整个数据的密文，然后在第3行中，我们改变块1中偏移量为2的字节，最后我们再调用解密函数。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">define(<span class="string">&#x27;MY_AES_KEY&#x27;</span>, <span class="string">&quot;abcdef0123456789&quot;</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">aes</span>(<span class="params"><span class="variable">$data</span>, <span class="variable">$encrypt</span></span>) </span>&#123;</span><br><span class="line">    <span class="variable">$aes</span> = mcrypt_module_open(MCRYPT_RIJNDAEL_128, <span class="string">&#x27;&#x27;</span>, MCRYPT_MODE_CBC, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">    <span class="variable">$iv</span> = <span class="string">&quot;1234567891234567&quot;</span>;</span><br><span class="line">    mcrypt_generic_init(<span class="variable">$aes</span>, MY_AES_KEY, <span class="variable">$iv</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$encrypt</span> ? mcrypt_generic(<span class="variable">$aes</span>,<span class="variable">$data</span>) : mdecrypt_generic(<span class="variable">$aes</span>,<span class="variable">$data</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">define(<span class="string">&#x27;MY_MAC_LEN&#x27;</span>, <span class="number">40</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">encrypt</span>(<span class="params"><span class="variable">$data</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> aes(<span class="variable">$data</span>, <span class="literal">true</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">decrypt</span>(<span class="params"><span class="variable">$data</span></span>) </span>&#123;</span><br><span class="line">    <span class="variable">$data</span> = rtrim(aes(<span class="variable">$data</span>, <span class="literal">false</span>), <span class="string">&quot;\0&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$data</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$v</span> = <span class="string">&#x27;a:2:&#123;s:4:&quot;name&quot;;s:6:&quot;sdsdsd&quot;;s:8:&quot;greeting&quot;;s:20:&quot;echo \&#x27;Hello sdsdsd!\&#x27;&quot;;&#125;&#x27;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$v</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"><span class="variable">$enc</span> = @encrypt(<span class="variable">$v</span>);</span><br><span class="line"><span class="variable">$enc</span>[<span class="number">2</span>] = chr(ord(<span class="variable">$enc</span>[<span class="number">2</span>]) ^ ord(<span class="string">&quot;6&quot;</span>) ^ ord (<span class="string">&quot;7&quot;</span>));</span><br><span class="line"><span class="variable">$b</span> = @decrypt(<span class="variable">$enc</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$b</span>;</span><br></pre></td></tr></table></figure>
+
+<p>output:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a:2:&#123;s:4:&quot;name&quot;;s:6:&quot;sdsdsd&quot;;s:8:&quot;greeting&quot;;s:20:&quot;echo &#x27;Hello sdsdsd!&#x27;&quot;;&#125;</span><br><span class="line">�1��îqv��C�fs:7:&quot;sdsdsd&quot;;s:8:&quot;greeting&quot;;s:20:&quot;echo &#x27;Hello sdsdsd!&#x27;&quot;;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，6已经被我们变为了7</p>
+<p>原理如下：</p>
+<p>A = Decrypt(Ciphertext)与B = Ciphertext-N-1异或后最终得到C = 6。等价于：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C = A XOR B</span><br></pre></td></tr></table></figure>
+
+<p>所以，我们唯一不知道的值就是A（注：对于B，C来说）（block cipher decryption）;借由XOR，我们可以很轻易地得到A的值：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A = B XOR C</span><br></pre></td></tr></table></figure>
+
+<p>A XOR B XOR C等于0</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ord($enc[2]) ^ ord(&quot;6&quot;) ^ ord (&quot;7&quot;)</span><br><span class="line">B		^		C		^		目标值 </span><br></pre></td></tr></table></figure>
+
+<p>如此计算出A，然后就可以根据原来的逻辑以A得到C，也就是我们想要修改的值</p>
+<p>我们控制A为我们计算出来的payload即可</p>
+<h1 id="3-例题"><a href="#3-例题" class="headerlink" title="3.例题"></a>3.例题</h1><p>iscc2018 《Only admin can see flag》</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">include</span> <span class="string">&#x27;sqlwaf.php&#x27;</span>;</span><br><span class="line">define(<span class="string">&quot;SECRET_KEY&quot;</span>, <span class="string">&quot;................&quot;</span>);</span><br><span class="line">define(<span class="string">&quot;METHOD&quot;</span>, <span class="string">&quot;aes-128-cbc&quot;</span>);</span><br><span class="line">session_start();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get_random_iv</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="variable">$iv</span>=<span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="variable">$i</span>=<span class="number">0</span>;<span class="variable">$i</span>&lt;<span class="number">16</span>;<span class="variable">$i</span>++)&#123;</span><br><span class="line">        <span class="variable">$iv</span>.=chr(rand(<span class="number">1</span>,<span class="number">255</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="variable">$iv</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">login</span>(<span class="params"><span class="variable">$info</span></span>)</span>&#123;</span><br><span class="line">    <span class="variable">$iv</span>=get_random_iv();</span><br><span class="line">    <span class="variable">$plain</span> = serialize(<span class="variable">$info</span>);</span><br><span class="line">    <span class="variable">$cipher</span> = openssl_encrypt(<span class="variable">$plain</span>, METHOD, SECRET_KEY, OPENSSL_RAW_DATA, <span class="variable">$iv</span>);</span><br><span class="line">    <span class="variable">$_SESSION</span>[<span class="string">&#x27;username&#x27;</span>] = <span class="variable">$info</span>[<span class="string">&#x27;username&#x27;</span>];</span><br><span class="line">    setcookie(<span class="string">&quot;iv&quot;</span>, base64_encode(<span class="variable">$iv</span>));</span><br><span class="line">    setcookie(<span class="string">&quot;cipher&quot;</span>, base64_encode(<span class="variable">$cipher</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">show_homepage</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable">$_SESSION</span>[<span class="string">&quot;username&quot;</span>]===<span class="string">&#x27;admin&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;&lt;p&gt;Hello admin&lt;/p&gt;&#x27;</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;&lt;p&gt;Flag is *************&lt;/p&gt;&#x27;</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;&lt;p&gt;hello &#x27;</span>.<span class="variable">$_SESSION</span>[<span class="string">&#x27;username&#x27;</span>].<span class="string">&#x27;&lt;/p&gt;&#x27;</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;&lt;p&gt;Only admin can see flag&lt;/p&gt;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&#x27;&lt;p&gt;&lt;a href=&quot;loginout.php&quot;&gt;Log out&lt;/a&gt;&lt;/p&gt;&#x27;</span>;</span><br><span class="line">    <span class="keyword">die</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">check_login</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_COOKIE</span>[<span class="string">&#x27;cipher&#x27;</span>]) &amp;&amp; <span class="keyword">isset</span>(<span class="variable">$_COOKIE</span>[<span class="string">&#x27;iv&#x27;</span>]))&#123;</span><br><span class="line">        <span class="variable">$cipher</span> = base64_decode(<span class="variable">$_COOKIE</span>[<span class="string">&#x27;cipher&#x27;</span>]);</span><br><span class="line">        <span class="variable">$iv</span> = base64_decode(<span class="variable">$_COOKIE</span>[<span class="string">&quot;iv&quot;</span>]);</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$plain</span> = openssl_decrypt(<span class="variable">$cipher</span>, METHOD, SECRET_KEY, OPENSSL_RAW_DATA, <span class="variable">$iv</span>))&#123;</span><br><span class="line">            <span class="variable">$info</span> = unserialize(<span class="variable">$plain</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;&lt;p&gt;base64_decode(&#x27;&quot;</span>.base64_encode(<span class="variable">$plain</span>).<span class="string">&quot;&#x27;) can&#x27;t unserialize&lt;/p&gt;&quot;</span>);</span><br><span class="line">            <span class="variable">$_SESSION</span>[<span class="string">&#x27;username&#x27;</span>] = <span class="variable">$info</span>[<span class="string">&#x27;username&#x27;</span>];</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&quot;ERROR!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;username&#x27;</span>])&amp;&amp;<span class="keyword">isset</span>(<span class="variable">$_POST</span>[<span class="string">&#x27;password&#x27;</span>])) &#123;</span><br><span class="line">  <span class="variable">$username</span>=waf((<span class="keyword">string</span>)<span class="variable">$_POST</span>[<span class="string">&#x27;username&#x27;</span>]);</span><br><span class="line">  <span class="variable">$password</span>=waf((<span class="keyword">string</span>)<span class="variable">$_POST</span>[<span class="string">&#x27;password&#x27;</span>]);</span><br><span class="line">  <span class="keyword">if</span>(<span class="variable">$username</span> === <span class="string">&#x27;admin&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">exit</span>(<span class="string">&#x27;&lt;p&gt;You are not real admin!&lt;/p&gt;&#x27;</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="variable">$info</span> = <span class="keyword">array</span>(<span class="string">&#x27;username&#x27;</span>=&gt;<span class="variable">$username</span>,<span class="string">&#x27;password&#x27;</span>=&gt;<span class="variable">$password</span>);</span><br><span class="line">        login(<span class="variable">$info</span>);</span><br><span class="line">        show_homepage();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_SESSION</span>[<span class="string">&quot;username&quot;</span>]))&#123;</span><br><span class="line">        check_login();</span><br><span class="line">        show_homepage();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span> &gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">  &lt;title&gt;Paper login form&lt;/title&gt;</span><br><span class="line">      &lt;link rel=<span class="string">&quot;stylesheet&quot;</span> href=<span class="string">&quot;css/style.css&quot;</span>&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div id=<span class="string">&quot;login&quot;</span>&gt;</span><br><span class="line">  &lt;form action=<span class="string">&quot;&quot;</span> method=<span class="string">&quot;post&quot;</span>&gt;</span><br><span class="line">    &lt;h1&gt;Sign In&lt;/h1&gt;</span><br><span class="line">    &lt;input name=<span class="string">&#x27;username&#x27;</span> type=<span class="string">&quot;text&quot;</span> placeholder=<span class="string">&quot;Username&quot;</span>&gt;</span><br><span class="line">    &lt;input name=<span class="string">&#x27;password&#x27;</span> type=<span class="string">&quot;password&quot;</span> placeholder=<span class="string">&quot;Password&quot;</span>&gt;</span><br><span class="line">    &lt;button&gt;Sign in&lt;/button&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>分析：</strong></p>
+<p>show_homepage函数：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">if</span> (<span class="variable">$_SESSION</span>[<span class="string">&quot;username&quot;</span>]===<span class="string">&#x27;admin&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;&lt;p&gt;Hello admin&lt;/p&gt;&#x27;</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;&lt;p&gt;Flag is *************&lt;/p&gt;&#x27;</span>;</span><br><span class="line">.....</span><br></pre></td></tr></table></figure>
+
+<p>要让$_SESSION[“username”]===’admin’成立，才能返回flag</p>
+<p>但是如果我们直接在输入框里输入admin，她又是不允许的</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="variable">$username</span> === <span class="string">&#x27;admin&#x27;</span>)&#123;</span><br><span class="line">        <span class="keyword">exit</span>(<span class="string">&#x27;&lt;p&gt;You are not real admin!&lt;/p&gt;&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>因此我们可以通过这里的反序列化来控制$_SESSION[“username”]===’admin’</p>
+<p>回到check_login函数</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">check_login</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="variable">$_COOKIE</span>[<span class="string">&#x27;cipher&#x27;</span>]) &amp;&amp; <span class="keyword">isset</span>(<span class="variable">$_COOKIE</span>[<span class="string">&#x27;iv&#x27;</span>]))&#123;</span><br><span class="line">        <span class="variable">$cipher</span> = base64_decode(<span class="variable">$_COOKIE</span>[<span class="string">&#x27;cipher&#x27;</span>]);</span><br><span class="line">        <span class="variable">$iv</span> = base64_decode(<span class="variable">$_COOKIE</span>[<span class="string">&quot;iv&quot;</span>]);</span><br><span class="line">        <span class="keyword">if</span>(<span class="variable">$plain</span> = openssl_decrypt(<span class="variable">$cipher</span>, METHOD, SECRET_KEY, OPENSSL_RAW_DATA, <span class="variable">$iv</span>))&#123;</span><br><span class="line">            <span class="variable">$info</span> = unserialize(<span class="variable">$plain</span>) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">&quot;&lt;p&gt;base64_decode(&#x27;&quot;</span>.base64_encode(<span class="variable">$plain</span>).<span class="string">&quot;&#x27;) can&#x27;t unserialize&lt;/p&gt;&quot;</span>);</span><br><span class="line">            <span class="variable">$_SESSION</span>[<span class="string">&#x27;username&#x27;</span>] = <span class="variable">$info</span>[<span class="string">&#x27;username&#x27;</span>];</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&quot;ERROR!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>所以要求我们输入的不是admin，但经过AES加密后变成了admin</p>
+<p><strong>解题：</strong></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$info</span> = <span class="keyword">array</span>(<span class="string">&#x27;username&#x27;</span>=&gt;<span class="string">&#x27;admi0&#x27;</span>,<span class="string">&#x27;password&#x27;</span>=&gt;<span class="string">&#x27;123456&#x27;</span>);</span><br><span class="line"><span class="keyword">echo</span> serialize(<span class="variable">$info</span>)</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>用户名相同长度，但是不是admin</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a:2:&#123;s:8:&quot;username&quot;;s:5:&quot;admi0&quot;;s:8:&quot;password&quot;;s:6:&quot;123456&quot;;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>分块,16字节一分</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a:2:&#123;s:8:&quot;userna</span><br><span class="line">me&quot;;s:5:&quot;admi0&quot;;</span><br><span class="line">s:8:&quot;password&quot;;s</span><br><span class="line">:6:&quot;123456&quot;;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>所要控制的0在第二块，偏移13</p>
+<p>因此如果我们要攻击，代码段应该是这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$enc[2] = chr(ord($enc[13]) ^ ord(&quot;2&quot;) ^ ord (&quot;n&quot;));</span><br></pre></td></tr></table></figure>
+
+<p>但是这里密文值发生了改变，解密后可能会出现上面小demo中的乱码导致反序列化失败</p>
+<p>用admi0/123456登录</p>
+<p>拿到cookie中cipher的值，并用脚本进行字符翻转</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> unquote</span><br><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> quote_plus</span><br><span class="line"></span><br><span class="line">cipher = <span class="string">&#x27;9AOOYlmVvT4xmjViSqORmkZT%2Bxm2mJf0tsuHd%2BUcf1xrghHyXp8FRoQjkE%2FR4dJu8U8DJfcHcHEGJI2ntOYxHw%3D%3D&#x27;</span></span><br><span class="line">cipher = unquote(cipher)</span><br><span class="line">cipher_de = base64.b64decode(cipher)</span><br><span class="line">ch = <span class="built_in">chr</span>(<span class="built_in">ord</span>(cipher_de[<span class="number">13</span>]) ^ <span class="built_in">ord</span>(<span class="string">&#x27;0&#x27;</span>) ^ <span class="built_in">ord</span>(<span class="string">&#x27;n&#x27;</span>))</span><br><span class="line">cipher_de=cipher_de[<span class="number">0</span>:<span class="number">13</span>]+ch+cipher_de[<span class="number">14</span>::]</span><br><span class="line">rs = base64.b64encode(cipher_de)</span><br><span class="line"><span class="built_in">print</span> quote_plus(rs)</span><br></pre></td></tr></table></figure>
+
+<p>此时页面回显</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ww0E9uos3vF/p7Ef76SZNW1lIjtzOjU6ImFkbWluIjtzOjg6InBhc3N3b3JkIjtzOjY6IjEyMzQ1NiI7fQ==</span><br><span class="line"></span><br><span class="line">Ã</span><br><span class="line">.öê,Þñ.§±.ï¤.5me&quot;;s:5:&quot;admin&quot;;s:8:&quot;password&quot;;s:6:&quot;123456&quot;;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到，目标字符串已经翻转成功，但是第一段的密文解密出来成了乱码</p>
+<p>但是我们把block1的密文改了，接下来考虑怎么把block1给他恢复，使得明文可以被反序列化</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> unquote</span><br><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> quote_plus</span><br><span class="line"></span><br><span class="line">mingwen_de=<span class="string">&#x27;8KV6FFinwp+pUFrattXjQ21lIjtzOjU6ImFkbWluIjtzOjg6InBhc3N3b3JkIjtzOjY6IjEyMzQ1NiI7fQ==&#x27;</span></span><br><span class="line"><span class="comment">#base64_decode(&#x27;这里面的&#x27;) can&#x27;t unserialize</span></span><br><span class="line">mingwen = base64.b64decode(mingwen_de)</span><br><span class="line"><span class="built_in">print</span> mingwen</span><br><span class="line"></span><br><span class="line">iv = <span class="string">&#x27;b6bpYwyjk7rZs4sScY8p4A%3D%3D&#x27;</span></span><br><span class="line"><span class="comment">#此时cookie里的iv</span></span><br><span class="line">iv = unquote(iv)</span><br><span class="line">iv_de = base64.b64decode(iv)</span><br><span class="line">new = <span class="string">&#x27;a:2:&#123;s:8:&quot;userna&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">16</span>):</span><br><span class="line">    iv_de = iv_de[:i] + <span class="built_in">chr</span>(<span class="built_in">ord</span>(iv_de[i]) ^ <span class="built_in">ord</span>(mingwen[i]) ^ <span class="built_in">ord</span>(new[i])) + iv_de[i+<span class="number">1</span>:]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(base64.b64encode(iv_de))</span><br><span class="line"><span class="comment">#用这个结果把原来的iv换掉</span></span><br></pre></td></tr></table></figure>
+
+<p>根据cbc解码时的规则</p>
+<p>C1 ^ IV =&gt; B1</p>
+<p>所以我们只要求出正确的IV就可以控制B1为我们想要的值，这和上面的翻转攻击有相似的地方</p>
+<p><img src="images/image-20211201211008656.png"></p>
+<p>参考资料：</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://www.mi1k7ea.com/2020/09/17/%E6%B5%85%E6%9E%90CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%E4%B8%8EPadding-Oracle-Attack/" >https://www.mi1k7ea.com/2020/09/17/%E6%B5%85%E6%9E%90CBC%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB%E4%B8%8EPadding-Oracle-Attack/<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link"   target="_blank" rel="noopener" href="http://www.lmxspace.com/2018/05/07/cbc%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/" >http://www.lmxspace.com/2018/05/07/cbc%E5%AD%97%E8%8A%82%E7%BF%BB%E8%BD%AC%E6%94%BB%E5%87%BB/<i class="fas fa-external-link-alt"></i></a></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：cbc字节反转攻击入门</li>
+        <li>本文作者：AEQAQ</li>
+        <li>创建时间：2021-12-01 21:43:16</li>
+        <li>
+            本文链接：https://aeqaq2002.github.io/2021/12/01/cbc/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2021/12/01/Viking/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Viking</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>
+              -
+            
+            2021&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">AEQAQ</a>
+        </div>
+        
+            <script async  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">1.    基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-CBC%E6%A8%A1%E5%BC%8F"><span class="nav-text">1.1    CBC模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E8%BF%87%E7%A8%8B%EF%BC%9A"><span class="nav-text">加密过程：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%AF%86%E8%BF%87%E7%A8%8B%EF%BC%9A"><span class="nav-text">解密过程：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E5%BC%82%E6%88%96"><span class="nav-text">1.2 异或</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-simple-demo"><span class="nav-text">2.    simple demo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E4%BE%8B%E9%A2%98"><span class="nav-text">3.例题</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>
